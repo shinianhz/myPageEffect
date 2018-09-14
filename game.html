@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas id="myCanvas" width="600" height="600" style="border:1px solid rgb(5, 253, 121)"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('myCanvas'),
+            context = myCanvas.getContext('2d'),
+            s = 100, //speed
+            x = 8, //start direction
+            y = x,
+            l = 0, //length
+            size = 8, //size
+            map = [], //body
+            direction = 2, //top:1,right:2;down:3,left:0
+            ranX, //direction of food
+            ranY;
+
+        //
+        function game() {
+
+            switch (direction) {
+                case 1:
+                    y -= size;
+                    break;
+                case 2:
+                    x += size;
+                    break;
+                case 3:
+                    y += size;
+                    break;
+                case 0:
+                    x -= size;
+                    break;
+            };
+            if (x > canvas.width || y > canvas.height || x < 0 || y < 0) {
+                alert('碰壁了，game over');
+                window.location.reload();
+            }
+
+            for (var i = 0; i < map.length; i++) {
+                if (map[i].x == x && map[i].y == y) {
+                    alert('撞到自己,game over');
+                    window.location.reload();
+                }
+            };
+            if (map.length > l) {
+                var clear = map.shift();
+                context.clearRect(clear['x'], clear['y'], size, size);
+            };
+            map.push({
+                'x': x,
+                'y': y
+            });
+            context.fillStyle = 'black';
+            context.fillRect(x, y, size, size);
+            if ((ranX * 8) == x && (ranY * 8) == y) {
+                food();
+                l++;
+            }
+        }
+        //
+        if (map.length > 3) {
+            s = 30
+        }
+        setInterval(game, s);
+
+        //按键事件
+        document.onkeydown = function(e) {
+                //只能由方向键控制方向
+                if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 39 || e.keyCode == 40) {
+                    var code = e.keyCode - 37;
+                    direction = code;
+                }
+            }
+            //随机产生食物
+        function food() {
+            ranX = Math.ceil(Math.random() * 75);
+            ranY = Math.ceil(Math.random() * 75);
+            for (var i = 0; i < map.length; i++) {
+                if (ranX == map[i].x && ranY == map[i].y) {
+                    food();
+                }
+            }
+            context.fillStyle = "red";
+            context.fillRect(ranX * 8, ranY * 8, 8, 8);
+        };
+        food();
+    </script>
+</body>
+
+</html>

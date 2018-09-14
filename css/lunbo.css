@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(14, 13, 13, 0.822);
+}
+.box {
+  width: 750px;
+  height: 220px;
+  margin: 50px auto;
+  position: relative;
+}
+.box ul {
+  list-style: none;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.box ul li {
+  width: 498px;
+  height: 220px;
+  transition: all .3s ease;
+  position: absolute;
+}
+.box ul li img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+.box ul .p1 {
+  transform: translate3d(-447px, 0, 0) scale(0.81);
+  opacity: 0.4;
+  z-index: 1;
+}
+.box ul .p2 {
+  transform: translate3d(-200px, 0, 0) scale(0.81);
+  transform-origin: 0 50%;
+  opacity: 0.6;
+  z-index: 2;
+}
+.box ul .p3 {
+  transform: translate3d(0px, 0, 0) scale(0.81);
+  transform-origin: 0 50%;
+  opacity: 0.8;
+  z-index: 3;
+}
+.box ul .p4 {
+  transform: translate3d(130px, 0, 0) scale(1);
+  opacity: 1;
+  z-index: 4;
+}
+.box ul .p5 {
+  transform: translate3d(350px, 0, 0) scale(0.81);
+  transform-origin: 0 50%;
+  opacity: 0.8;
+  z-index: 3;
+}
+.box ul .p6 {
+  transform: translate3d(560px, 0, 0) scale(0.81);
+  transform-origin: 0 50%;
+  opacity: 0.6;
+  z-index: 2;
+}
+.box ul .p7 {
+  transform: translate3d(760px, 0, 0) scale(0.81);
+  transform-origin: 0 50%;
+  opacity: 0.4;
+  z-index: 1;
+}
+.box .left,
+.box .right {
+  display: none;
+  text-decoration: none;
+  width: 126px;
+  height: 179px;
+  position: absolute;
+  top: 21px;
+  z-index: 50;
+  color: #fff;
+  line-height: 179px;
+}
+.box .left {
+  text-align: left;
+  left: 0;
+}
+.box .right {
+  text-align: right;
+  right: 0;
+}
+.box i {
+  font-size: 50px;
+}
+.box .button {
+  width: 370px;
+  height: 5px;
+  line-height: 5px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -185px;
+  z-index: 80;
+}
+.box .button a {
+  float: left;
+  width: 40px;
+  height: 5px;
+  background-color: #ccc;
+  margin-right: 15px;
+}
+.box .button a:last-child {
+  margin-right: 0;
+}
+.box .button .color {
+  background-color: #13e2e2;
+}

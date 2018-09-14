@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.show{
+    width: 570px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+.btn{
+    width: 570px;
+    height: 160px;
+    margin: 20px auto;
+    list-style: none;
+    overflow: hidden;
+    li{
+        float: left;
+        img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 25px;
+            border: 10px solid #1f70da ;
+            opacity: .5;
+            transition: all .5s;
+            &:hover{
+                transform: scale(1.2) rotate(360deg);
+                opacity: 1;
+                border-color: rgb(43, 200, 56);
+            }
+
+        }
+    }
+}
